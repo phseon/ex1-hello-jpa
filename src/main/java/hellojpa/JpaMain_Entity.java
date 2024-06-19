@@ -5,8 +5,6 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
 
-import java.util.List;
-
 public class JpaMain_Entity {
 
     public static void main(String[] args) {
@@ -17,13 +15,26 @@ public class JpaMain_Entity {
         tx.begin();
         
         try {
-            Member member = new Member();
-            member.setId(102L);
-            member.setName("HelloJPA");
+//            Member_Entity member = new Member_Entity();
+//            member.setId(1L);
+//            member.setUsername("A");
+//            member.setRoleType(RoleType.USER);
+//            
+//            em.persist(member);
+//            
+//            Member_Entity member1 = new Member_Entity();
+//            member1.setId(2L);
+//            member1.setUsername("B");
+//            member1.setRoleType(RoleType.ADMIN);
+//            
+//            em.persist(member1);
+            
+            Member_Entity member2 = new Member_Entity();
+            member2.setId(3L);
+            member2.setUsername("C");
+            member2.setRoleType(RoleType.GUEST);
 
-            em.persist(member);
-
-            System.out.println("===============");
+            em.persist(member2);
             
             tx.commit();
         } catch (Exception e) {

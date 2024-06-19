@@ -9,8 +9,8 @@
             <property name="jakarta.persistence.jdbc.user" value="sa"/>
             <property name="jakarta.persistence.jdbc.password" value=""/>
             <property name="jakarta.persistence.jdbc.url" value="jdbc:h2:tcp://localhost/~/test"/>
-<!--            <property name="database.platform" value="org.hibernate.dialect.H2Dialect"/>-->
-            <property name="database.platform" value="org.hibernate.dialect.OracleDialect"/>
+            <property name="database.platform" value="org.hibernate.dialect.H2Dialect"/>
+<!--            <property name="database.platform" value="org.hibernate.dialect.OracleDialect"/>-->
 
             <!-- 옵션 -->
             <property name="hibernate.show_sql" value="true"/>
@@ -18,7 +18,7 @@
             <property name="hibernate.use_sql_comments"  value="true"/>
             <!--쿼리를 사이즈만큼 모아 DB에 한 번에 보낸 후 커밋함-->
 <!--            <property name="hibernate.jdbc.batch_size"  value="10"/>-->
-            <property name="hibernate.hbm2ddl.auto" value="create-drop" />
+            <property name="hibernate.hbm2ddl.auto" value="create" />
         </properties>
     </persistence-unit>
 

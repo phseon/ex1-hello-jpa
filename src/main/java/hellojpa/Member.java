@@ -1,30 +1,32 @@
 package hellojpa;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
-//@Table(name = "MBR")
-public class Member {
-    
+@SequenceGenerator(
+        name = "MEMBER_SEQ_GENERATOR"
+        , sequenceName = "member_seq"
+        , initialValue = 1, allocationSize = 50)
+//@TableGenerator(
+//        name = "MEMBER_SEQ_GENERATOR",
+//        table = "MY_SEQUENCES",
+//        pkColumnValue = "MEMBER_SEQ", allocationSize = 1)
+    public class Member {
     @Id
+//    @GeneratedValue(strategy = GenerationType.TABLE,
+//            generator = "MEMBER_SEQ_GENERATOR")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,
+            generator = "MEMBER_SEQ_GENERATOR")
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "USERNAME")
-    private String name;
-    private String qwer1234;
-
+        
+    @Column(name = "name", nullable = false)
+    private String username;
+    
     //JPA는 기본적으로 리플렉션 등을 쓰기 때문에 객체를 동적으로 생성해야 하므로 기본 생성자 필요
     public Member() {
+    }
 
-    }
-    
-    public Member(Long id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-    
     public Long getId() {
         return id;
     }
@@ -33,12 +35,11 @@ public class Member {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String username) {
+        this.username = username;
     }
-
 }

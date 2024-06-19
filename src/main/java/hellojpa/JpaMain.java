@@ -2,7 +2,6 @@ package hellojpa;
 
 import jakarta.persistence.*;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class JpaMain {
@@ -58,9 +57,9 @@ public class JpaMain {
                     .getResultList();
             //JPA는 테이블이 아닌 멤버 객체를 대상으로 쿼리를 작성함. alias m -> 객체를 가리킴
             
-            for (Member member : result) {
-                System.out.println("member.name = " + member.getName());
-            }
+//            for (Member member : result) {
+//                System.out.println("member.name = " + member.getName());
+//            }
             
             
             tx.commit();
